@@ -4,18 +4,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+
+/*=========================================================
+    Estrutura para armazenar os dados do aluno
+  =========================================================*/
+struct TAluno {
+    char matricula[30];
+    char nome[200];
+};
+
+typedef struct TAluno TAluno;
+
 #include "filaDinamica.h"
 
-// Estrutura para armazenar os dados do aluno
-typedef struct {
-    char matricula[20];
-    char nome[100];
-} TAluno;
+// funções
 
-// Aloca memória e preenche um novo aluno
+/*=========================================================
+    Função para alocar memória para um novo aluno
+     Parametros:   
+     1- matricula - string contendo a matrícula do aluno
+     2- nome - string contendo o nome do aluno
+     Retorno:
+     1- Ponteiro para a nova struct TAluno alocada
+  =========================================================*/
 TAluno* criarAluno(char* matricula, char* nome);
 
-// Percorre a fila, imprime cada aluno e limpa a memória
+/*=========================================================
+    Função para percorrer a fila e imprimir o nome dos alunos
+     Parametros:   
+     1- fila - ponteiro para a struct com os dados da fila
+  =========================================================*/
 void processarImprimirFila(TFila *fila);
 
 #endif

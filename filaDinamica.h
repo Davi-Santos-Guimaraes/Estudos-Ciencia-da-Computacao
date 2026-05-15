@@ -1,6 +1,9 @@
+#ifndef FILA_DINAMICA_H
+#define FILA_DINAMICA_H
 #include <stdio.h>
 #include <stdlib.h>
-#include "resolucaoAluno.h"
+
+typedef struct TAluno TAluno;
 
 /* Definição da estrutura do nó */
 typedef struct No{
@@ -59,3 +62,5 @@ TNo* criarNo(TAluno* elemento);
      1- fila - ponteiro para a struct com os dados da fila
   =========================================================*/
   void removerFila(TFila *const fila);
+
+  #endif

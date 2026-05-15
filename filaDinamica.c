@@ -1,4 +1,5 @@
 #include "filaDinamica.h"
+#include "resolucaoAluno.h"
 /**********************************************************
  * Funções da Fila Dinâmica
  **********************************************************/
@@ -59,7 +60,7 @@ TNo* criarNo(TAluno* elemento) {
     fila->fim->proximo = pAux;
     fila->fim = pAux;
     fila->tamanho++;
-    printf("Elemento Inserido com sucesso!");
+    //printf("Elemento Inserido com sucesso!");
 }
 /*=========================================================
     Função para Acessar um elemento
@@ -89,7 +90,7 @@ TNo* criarNo(TAluno* elemento) {
         fila->inicio = fila->inicio->proximo;
         free(pAux);
         fila->tamanho--;
-        printf("Elemento Removido com sucesso!");
+        //printf("Elemento Removido com sucesso!");
     }
     if(filaEstaVazia(fila))fila->fim = NULL;
 
