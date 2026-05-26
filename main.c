@@ -16,4 +16,6 @@ int main(){
     retirarIniciollse(&lista);
     printf("\n%d",acessarIniciollse(&lista));
     retirarIniciollse(&lista);
+    printf("\n%d",acessarIniciollse(&lista));
+
 }
