@@ -66,5 +66,38 @@ int acessarIniciollse(Tllse const * const lista);
 =========================================================*/
 void retirarIniciollse(Tllse * const lista);
 
+/*=========================================================
+   Função para inserir no fim da Lista
+   parametros:
+      1-Lista
+      2-Elemento
+=========================================================*/
+
+void inserirFimllse(Tllse *const lista, int elemento);
+
+/*=========================================================
+   Função para acessar fim da Lista
+   parametros:
+      1-Lista
+=========================================================*/
+
+int acessarFimllse(Tllse const * const lista);
+
+/*=========================================================
+   Função para remover fim da Lista
+   parametros:
+      1-Lista
+=========================================================*/
+
+void retirarFimllse(Tllse *const lista);
+
+/*=========================================================
+   Função para mostrar os elementos da Lista
+   Parametros:
+      1- Lista
+=========================================================*/
+
+void mostrarLista(Tllse const * const lista);
+
 
 #endif
