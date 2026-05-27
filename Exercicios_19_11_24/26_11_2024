@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct cadastro {
+    long int codigo;
+    char descricao[100];
+    float preco;
+};
+
+int main() {
+    struct cadastro c[10];
+    int i;
+
+    for (i = 0; i < 10; i++) {
+        printf("Digite o codigo do produto: ");
+        scanf("%ld", &c[i].codigo);
+        getchar();
+        
+        printf("Digite uma breve descricao do produto: ");
+        fgets(c[i].descricao, sizeof(c[i].descricao), stdin);
+        c[i].descricao[strcspn(c[i].descricao, "\n")] = 0;
+        
+        printf("Digite o preco do produto: ");
+        scanf("%f", &c[i].preco);
+        getchar();
+    }
+
+    printf("Dados Cadastrados:\n\n");
+
+    for (i = 0; i < 10; i++) {
+        printf("Cadastro %d:\n", i + 1);
+        printf("Codigo: %ld\n", c[i].codigo);
+        printf("Descricao: %s\n", c[i].descricao);
+        printf("Preco: %.2f\n\n", c[i].preco);
+    }
+
+    return 0;
+}
