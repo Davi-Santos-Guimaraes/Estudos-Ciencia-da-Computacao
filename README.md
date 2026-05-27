@@ -11,8 +11,6 @@ Os códigos estão organizados por temas e módulos de estudo. Abaixo está o í
 
 | Diretório | Descrição |
 
-| :--- | :--- |
-
 | `AED-2/` | Projetos e exercícios da disciplina de Algoritmos e Estruturas de Dados 2. |
 
 | `Estrutura-de-Dados-1/` | Fundamentos de gerenciamento de memória, ponteiros e estruturas lineares básicas. |
