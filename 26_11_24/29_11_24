@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct cadastro {
+    char nome[50];
+    int idade;
+    char end[50];
+};
+
+
+int main() {
+    struct cadastro c;
+
+    fgets(c.nome, 50, stdin);
+    scanf("%d", &c.idade);
+    getchar();
+    fgets(c.end, 50, stdin);
+    
+    printf("\n\nNome: %s",c.nome);
+    printf("Idade: %d\n",c.idade);
+    printf("Endereco: %s\n",c.end);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct cadastro {
+    long int mat;
+    char nome[50];
+    float nota[3];
+};
+
+
+int main() {
+    struct cadastro c[5];
+    int i, j, indice_maior_media;
+    float soma_notas, maior_media;
+    indice_maior_media = 0;
+    for(i=0;i<5;i++)
+    {
+        scanf("%ld",&c[i].mat);
+        getchar();
+        fgets(c[i].nome, 50, stdin);
+         for (j = 0; j < 3; j++) {
+            printf("Nota %d: ", j + 1);
+            scanf("%f", &c[i].nota[j]);
+        }
+    }
+
+    for (i = 0; i < 5; i++) {
+        soma_notas = 0.0;
+        for (j = 0; j < 3; j++) {
+            soma_notas += c[i].nota[j];
+        }
+        float media = soma_notas / 3.0;
+
+        if (media > maior_media) {
+            maior_media = media;
+            indice_maior_media = i;
+        }
+    }
+
+    printf("\nAluno com maior média:\n");
+    printf("Nome: %s", c[indice_maior_media].nome);
+    printf("Média: %.2f\n", maior_media);
+    printf("Notas: %.2f, %.2f, %.2f\n", c[indice_maior_media].nota[0], c[indice_maior_media].nota[1], c[indice_maior_media].nota[2]);
+
+    return 0;
+}
+
+#include <stdio.h>
+ #include <stdlib.h>
+ enum semana {Domingo = 1, Segunda, Terca, Quarta, Quinta,  
+     Sexta, Sabado};
+ int main(){        
+  int dia;
+  
+  printf("Digite um numero entre 1 e 7\n");
+  scanf("%d",&dia);
+  switch(dia){
+      case Domingo:
+      printf("Domingo");
+      break;
+      case Segunda:
+      printf("Segunda-Feira");
+      break;
+      case Terca:
+      printf("Terca-Feira");
+      break;
+      case Quarta:
+      printf("Quarta-Feira");
+      break;
+      case Quinta:
+      printf("Quinta-Feira");
+      break;
+      case Sexta:
+      printf("Sexta-Feira");
+      break;
+      case Sabado:
+      printf("Sabado");
+      break;
+  }
+  return 0;
+ }
+
+#include <stdio.h>
+#include <stdlib.h>
+ union tipo{
+  int x;
+  float c;      
+};
+ int main(){  
+  union tipo t;    
+  t.x = 20;
+  printf("x = %d\n",t.x);
+  printf("c = %f\n",t.c);
+  t.c = 3.14;
+  printf("x = %d\n",t.x);
+  printf("c = %f\n",t.c);
+  return 0;
+ }
