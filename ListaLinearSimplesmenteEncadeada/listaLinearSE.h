@@ -99,5 +99,30 @@ void retirarFimllse(Tllse *const lista);
 
 void mostrarLista(Tllse const * const lista);
 
+/*=========================================================
+   Função para inserir na posição na Lista
+   parametros:
+      1-Lista
+      2-Elemento
+      3-Posição 
+=========================================================*/
+void inserirPosicaollse(Tllse *const lista, int elemento, int posicao);
+
+/*=========================================================
+   Função para acessar posição na Lista
+   parametros:
+      1-Lista
+      2-Posição
+=========================================================*/
+int acessarPosicaollse(Tllse const * const lista, int posicao);
+
+/*=========================================================
+   Função para remover posição na Lista
+   parametros:
+      1-Lista
+      2-Posição
+=========================================================*/
+void retirarPosicaollse(Tllse *const lista, int posicao);
+
 
 #endif

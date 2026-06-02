@@ -96,7 +96,7 @@ void retirarIniciollse(Tllse * const lista){
     lista->inicio = pAux->proximo;
     free(pAux);
     lista->tamanho --;
-    if(ListaVazia){
+    if(ListaVazia(lista)){
         lista->fim = NULL;
     }
 }
@@ -191,4 +191,89 @@ void mostrarLista(Tllse const * const lista){
         pAux = pAux->proximo;
     }
     printf("]\n");
+}
+
+/*=========================================================
+   Função para inserir na posição na Lista
+   parametros:
+      1-Lista
+      2-Elemento
+      3-Posição 
+=========================================================*/
+void inserirPosicaollse(Tllse *const lista, int elemento, int posicao){
+    if(posicao < 0 || posicao > lista->tamanho){
+        printf("\nPosicao invalida!");
+        return;
+    }
+    if(posicao == 0){
+        inserirIniciollse(lista, elemento);
+        return;
+    }
+    if(posicao == lista->tamanho){
+        inserirFimllse(lista, elemento);
+        return;
+    }
+
+    TNo *pAux = criarNo(elemento);
+    if(pAux == NULL){
+        printf("\nNo nao criado");
+        return;
+     }
+
+    TNo *pAnterior = lista->inicio;
+    for(int i = 0 ; i < posicao - 1 ; i++){
+        pAnterior = pAnterior->proximo;
+    }
+    pAux->proximo = pAnterior->proximo;
+    pAnterior->proximo = pAux;
+    lista->tamanho++;
+    printf("\nElemento Inserido com sucesso!");
+}
+
+/*=========================================================
+   Função para acessar posição na Lista
+   parametros:
+      1-Lista
+      2-Posição
+=========================================================*/
+int acessarPosicaollse(Tllse const * const lista, int posicao){
+    if(posicao < 0 || posicao >= lista->tamanho){
+        printf("\nPosicao invalida!");
+        return 0;
+    }
+    TNo *pAux = lista->inicio;
+    for(int i = 0 ; i < posicao ; i++){
+        pAux = pAux->proximo;
+    }
+    return(pAux->dado);
+}
+
+/*=========================================================
+   Função para remover posição na Lista
+   parametros:
+      1-Lista
+      2-Posição
+=========================================================*/
+void retirarPosicaollse(Tllse *const lista, int posicao){
+    if(posicao < 0 || posicao >= lista->tamanho){
+        printf("\nPosicao invalida!");
+        return;
+    }
+    if(posicao == 0){
+        retirarIniciollse(lista);
+        return;
+    }
+    if(posicao == lista->tamanho - 1){
+        retirarFimllse(lista);
+        return;
+    }
+
+    TNo *pAnterior = lista->inicio;
+    for(int i = 0 ; i < posicao - 1 ; i++){
+        pAnterior = pAnterior->proximo;
+    }
+    TNo *pAux = pAnterior->proximo;
+    pAnterior->proximo = pAux->proximo;
+    free(pAux);
+    lista->tamanho--;
 }
