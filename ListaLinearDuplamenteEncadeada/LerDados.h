@@ -1,19 +1,25 @@
+#ifndef LERDADOS_H
+#define LERDADOS_H
+
 #include <stdio.h>
 #include <stdlib.h>
-
-/*==================================================
-Função para ler dados do banco de dados dos alunos
-=====================================================*/
+#include "ListaLinearDE.h"
 
 /*==================================================
 Estrutura para armazenar os dados dos alunos
 =====================================================*/
-struct Aluno
-{
+typedef struct Aluno {
     int matricula;
     char nome[200];
-    char turno[20];
+    char turno[30];
     int periodo;
-    char enfase[20];
-    char curso[20];
-};
+    char enfase[50];
+    char curso[50];
+} Aluno;
+
+/*==================================================
+Função para ler dados do banco de dados dos alunos
+==================================================*/
+void carregarDados(Tllde *lista, const char *nomeArquivo);
+
+#endif
