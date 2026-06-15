@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#include <windows.h>
 #include "ListaLinearDE.h"
 #include "LerDados.h"
 
@@ -68,12 +69,12 @@ void imprimirAluno(Aluno *a) {
 int main() {
     // Configura o locale para português brasileiro
     setlocale(LC_ALL, "pt_BR.UTF-8");
+    SetConsoleOutputCP(CP_UTF8);
     
     Tllde lista;
     inicializarLista(&lista);
 
     // Carga inicial automática dos dados vindos do CSV
-    printf("Efetuando carga automatica de dados a partir do arquivo CSV...\n");
     carregarDados(&lista, "DadosDosAlunos.csv");
 
     int opcao;
