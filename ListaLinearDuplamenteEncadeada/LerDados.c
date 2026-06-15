@@ -28,7 +28,7 @@ void carregarDados(Tllde *lista, const char *nomeArquivo) {
             continue;
         }
         /*==================================================================================================
-        Separando as partes do arquivo csv usando strtok, usando ";" como delimitador
+             Separando as partes do arquivo csv usando strtok, usando ";" como delimitador
         ===================================================================================================*/
 
         // Matrícula
