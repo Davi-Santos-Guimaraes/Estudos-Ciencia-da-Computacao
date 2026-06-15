@@ -6,22 +6,25 @@
 #include "ListaLinearDE.h"
 #include "LerDados.h"
 
-// Declaração da função contida em LerDados.c
+/*===============================================================================================================================
+Coloquei umas fuções auxiliares aqui no main pra evitar repetição de código e deixar mais organizado(dar menos trabalho pra mim)
+=================================================================================================================================*/
 void carregarDados(Tllde *lista, const char *nomeArquivo);
 
-// Função utilitária para limpar o buffer do teclado de forma segura
+// limpar o buffer do teclado para evitar problemas com fgets e scanf
 void limparBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-// Função utilitária para ler strings contendo espaços
+//ler strings 
 void lerString(char *destino, int tamanho) {
     fgets(destino, tamanho, stdin);
-    destino[strcspn(destino, "\n")] = '\0'; // Remove a quebra de linha residual
+    destino[strcspn(destino, "\n")] = '\0'; 
+    // strcspn encontra a posição do '\n' e substitui por '\0' para remover a nova linha
 }
 
-// Função para capturar os dados do terminal e gerar o ponteiro de Aluno
+// Função para adcionar novo aluno via teclado e usar as funções antigas de inserção da lista
 Aluno* criarAlunoTeclado() {
     Aluno *novo = (Aluno*) malloc(sizeof(Aluno));
     if (novo == NULL) {
@@ -53,7 +56,7 @@ Aluno* criarAlunoTeclado() {
     return novo;
 }
 
-// Função auxiliar para exibir os detalhes de um único aluno acessado
+// Função para imprimir os dados de um aluno
 void imprimirAluno(Aluno *a) {
     if (a == NULL) return;
     printf("\n======== Dados do Aluno ========\n");
@@ -67,14 +70,14 @@ void imprimirAluno(Aluno *a) {
 }
 
 int main() {
-    // Configura o locale para português brasileiro
+    // Trabalho do krl pra deixar em pt/br e com acentos funcionando no console do windows
     setlocale(LC_ALL, "pt_BR.UTF-8");
     SetConsoleOutputCP(CP_UTF8);
     
     Tllde lista;
     inicializarLista(&lista);
 
-    // Carga inicial automática dos dados vindos do CSV
+    // Carrega a lista dos dados dos alunos do arquivo csv
     carregarDados(&lista, "DadosDosAlunos.csv");
 
     int opcao;
@@ -229,7 +232,7 @@ int main() {
         }
     } while (opcao != 0);
 
-    // Esvazia e limpa toda a memoria pendente antes de fechar
+    // Esvazia e limpa toda a memoria
     while (!ListaVazia(&lista)) {
         retirarInicioLLDE(&lista);
     }

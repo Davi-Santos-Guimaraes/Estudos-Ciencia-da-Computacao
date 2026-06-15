@@ -141,16 +141,4 @@ Aluno* acessarPosicaoLLDE(Tllde const * const lista, int posicao);
 
 void retirarPosicaoLLDE(Tllde *const lista, int posicao);
 
-
-
-    
-
-
-
-
-
-
-
-
-
 #endif

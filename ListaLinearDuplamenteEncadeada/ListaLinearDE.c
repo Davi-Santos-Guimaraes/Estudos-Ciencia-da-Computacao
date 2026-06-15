@@ -70,7 +70,6 @@ void mostrarLista(Tllde const * const lista, int direcao) {
     
     int contador = 0;
     while(pAux != NULL){
-        // Cria um ponteiro auxiliar menor apenas para facilitar a escrita
         Aluno *a = pAux->aluno;
         
         // Formatação alinhada em colunas
@@ -84,18 +83,17 @@ void mostrarLista(Tllde const * const lista, int direcao) {
         
         contador++;
         // Verifica se atingiu 30 elementos para pausar
-        if (contador % 30 == 0) {
+        if (contador % 30 == 0) {// Usando % consigo pausar a cada 30 elementos,(30,60,90...)
             printf("\n--- Mostrando %d de %d elementos ---\n", contador, lista->tamanho);
             printf("Pressione ENTER para continuar ou digite 's' e ENTER para sair da listagem: ");
             
             char opcao = getchar();
             if (opcao == 's' || opcao == 'S') {
-                while(getchar() != '\n'); // Limpa o buffer do teclado
-                break; // Sai do loop (cancela a listagem)
+                while(getchar() != '\n');
+                break;
             }
         }
 
-        // Avança na direção escolhida
         if(direcao == 0){
             pAux = pAux->proximo;
         } else {
@@ -120,7 +118,6 @@ void mostrarLista(Tllde const * const lista, int direcao) {
         printf("\nNo nao criado");
         return;
     }
-    //iniciarNo(lista,valor)
 
     if(ListaVazia(lista)){
         lista->fim = lista->inicio = pAux;
@@ -174,7 +171,7 @@ void retirarInicioLLDE(Tllde *const lista){
         paux->proximo->anterior = NULL;
         
         if(paux->aluno != NULL) {
-            free(paux->aluno); // Libera a struct Aluno primeiro
+            free(paux->aluno);
         }
         free(paux); // Libera o nó
         lista->tamanho--;
@@ -198,7 +195,6 @@ void inserirFimLLDE(Tllde *const lista, Aluno* aluno){
         printf("\nNo nao criado");
         return;
     }
-    //iniciarNo(lista,valor)
 
     if(ListaVazia(lista)){
         lista->fim = lista->inicio = pAux;
@@ -352,7 +348,7 @@ void retirarPosicaoLLDE(Tllde *const lista, int posicao){
         pAux->proximo->anterior = pAux->anterior;
         
         if(pAux->aluno != NULL) {
-            free(pAux->aluno); // Evita deixar o registro do aluno orfão na RAM
+            free(pAux->aluno);
         }
         free(pAux);
         lista->tamanho--;
