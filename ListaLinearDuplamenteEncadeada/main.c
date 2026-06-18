@@ -5,6 +5,7 @@
 #include <windows.h>
 #include "ListaLinearDE.h"
 #include "LerDados.h"
+#include "OrdenarLista.h"
 
 /*===============================================================================================================================
 Coloquei umas fuções auxiliares aqui no main pra evitar repetição de código e deixar mais organizado(dar menos trabalho pra mim)
@@ -97,6 +98,7 @@ int main() {
         printf("9.  Acessar Aluno de POSICAO especifica\n");
         printf("10. Exibir Lista Paginada (Inicio ao Fim)\n");
         printf("11. Exibir Lista Paginada (Fim ao Inicio)\n");
+        printf("12. Ordenar Lista\n");
         printf("0.  Sair do Programa\n");
         printf("===================================================\n");
         printf("Escolha uma opcao: ");
@@ -220,6 +222,47 @@ int main() {
 
             case 11:
                 mostrarLista(&lista, 1);
+                break;
+            
+            case 12:
+                if (ListaVazia(&lista)) {
+                    printf("\nA lista esta vazia!\n");
+                } else {
+                    int metodoOrdem;
+                    printf("\n--- ESCOLHA O METODO DE ORDENACAO ---\n");
+                    printf("1. Por Matricula\n");
+                    printf("2. Por Nome\n");
+                    printf("3. Por Curso e Nome\n");
+                    printf("4. Por Enfase e Nome\n");
+                    printf("Opcao: ");
+                    if (scanf("%d", &metodoOrdem) == 1) {
+                        limparBuffer();
+                        switch(metodoOrdem) {
+                            case 1:
+                                ordenarPorMatricula(&lista);
+                                printf("\nLista ordenada por Matricula com sucesso!\n");
+                                break;
+                            case 2:
+                                ordenarPorNome(&lista);
+                                printf("\nLista ordenada por Nome com sucesso!\n");
+                                break;
+                            case 3:
+                                ordenarPorCursoENome(&lista);
+                                printf("\nLista ordenada por Curso e Nome com sucesso!\n");
+                                break;
+                            case 4:
+                                ordenarPorEnfaseENome(&lista);
+                                printf("\nLista ordenada por Enfase e Nome com sucesso!\n");
+                                break;
+                            default:
+                                printf("\nOpcao de ordenacao invalida!\n");
+                                break;
+                        }
+                    } else {
+                        limparBuffer();
+                        printf("\nValor invalido digitado.\n");
+                    }
+                }
                 break;
 
             case 0:
